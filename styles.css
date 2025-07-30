@@ -22,37 +22,61 @@ body {
 .header {
     background: hsl(220, 100%, 35%); /* Fundo azul sólido */
     color: hsl(0, 0%, 98%);
-    padding: 1rem 0; /* Padding reduzido para ocupar menos espaço */
+    padding: 1rem 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 280px; /* Aumentado para acomodar o CTA */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.header-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/images/Pimenta-Bueno-Ro.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.5) grayscale(0.2);
+    z-index: 0;
 }
 
 .header-content {
-    text-align: center;
-    display: flex; /* Adicionado para flexbox */
-    flex-direction: column; /* Coluna para empilhar elementos */
-    align-items: center; /* Centraliza itens horizontalmente */
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    padding: 1rem;
 }
 
-.header-title {
-    display: flex; /* Garante que os elementos internos do título sejam flexíveis */
-    flex-direction: column; /* Empilha os elementos do título */
-    align-items: center; /* Centraliza o título e o subtítulo */
-    gap: 0.5rem; /* Espaço reduzido entre título e subtítulo */
-    margin-bottom: 1rem; /* Margem reduzida para o grid de contato */
+.header-title-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .header-icon-title {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.75rem; /* Espaço entre brasão e texto do título */
-    margin-bottom: 0.5rem; /* Reduzir margem aqui também */
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
 }
 
 .header-icon {
-    background: hsl(0, 0%, 98%);
+    background: hsla(0, 0%, 98%, 0.8);
     color: hsl(120, 100%, 25%);
-    padding: 0.5rem; /* Padding reduzido para o ícone do cabeçalho */
-    border-radius: 0.5rem; /* Borda arredondada menor */
+    padding: 0.5rem;
+    border-radius: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,71 +84,149 @@ body {
 }
 
 .header-icon i {
-    width: 2rem; /* Tamanho do ícone ajustado */
-    height: 2rem; /* Tamanho do ícone ajustado */
+    width: 2rem;
+    height: 2rem;
 }
 
-.header-icon img { /* Estilo para o brasão no cabeçalho */
-    width: 2.5rem; /* Tamanho do brasão ajustado */
-    height: 2.5rem; /* Tamanho do brasão ajustado */
+.header-icon img {
+    width: 2.5rem;
+    height: 2.5rem;
     display: block;
 }
 
 
 .header h1 {
-    font-size: 1.5rem; /* Fonte do H1 reduzida */
+    font-size: 1.5rem;
     font-weight: bold;
     margin: 0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 .header-subtitle {
-    font-size: 1.1rem; /* Fonte do subtítulo reduzida */
+    font-size: 1.1rem;
     font-weight: 600;
-    margin-top: 0.25rem; /* Margem ajustada */
+    margin-top: 0.25rem;
     color: hsl(50, 100%, 50%);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
+
+/* CTA Principal Styles */
+.main-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.cta-text {
+    font-size: 1rem;
+    font-weight: 500;
+    color: hsl(0, 0%, 98%);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.cta-button {
+    background: hsl(120, 100%, 25%);
+    color: hsl(0, 0%, 98%);
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.cta-button:hover {
+    background: hsl(120, 90%, 35%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.cta-button i {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: hsl(0, 0%, 98%);
+}
+
 
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0.5rem; /* Espaço reduzido entre itens de contato */
+    gap: 0.5rem;
     max-width: 64rem;
     margin: 0 auto;
 }
 
 .contact-item {
     display: flex;
-    flex-direction: column; /* Para empilhar os links de telefone */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.25rem; /* Espaço entre os telefones no contact-item */
+    gap: 0.25rem;
     font-size: 0.875rem;
     word-break: break-all;
 }
 
 .contact-item i {
-    width: 1rem; /* Ícones de contato menores */
-    height: 1rem; /* Ícones de contato menores */
+    width: 1rem;
+    height: 1rem;
     flex-shrink: 0;
-    color: hsl(0, 0%, 98%); /* Ícones de contato brancos */
+    color: hsl(0, 0%, 98%);
 }
 
-.whatsapp-link { /* Novo estilo para links de WhatsApp */
+/* Links de Mapa */
+.map-link {
+    color: inherit;
+    text-decoration: underline;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: hsl(0, 0%, 98%); /* Texto branco para links do WhatsApp no cabeçalho */
-    text-decoration: underline; /* Adiciona sublinhado */
+}
+
+.map-link:hover {
+    opacity: 0.8;
+}
+
+
+.whatsapp-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: hsl(0, 0%, 98%);
+    text-decoration: underline;
 }
 
 .whatsapp-link:hover {
     opacity: 0.8;
 }
 
-.whatsapp-svg-icon { /* Estilo para a imagem SVG do WhatsApp */
-    width: 1rem; /* Tamanho do ícone SVG do WhatsApp no cabeçalho */
-    height: 1rem; /* Tamanho do ícone SVG do WhatsApp no cabeçalho */
-    /* Se o SVG for multicolorido, não defina 'color' aqui */
+.whatsapp-svg-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Links de Email */
+.mail-link {
+    color: inherit;
+    text-decoration: underline;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mail-link:hover {
+    opacity: 0.8;
 }
 
 
@@ -249,14 +351,35 @@ body {
 
 /* WhatsApp links in Contact Info (main content) */
 .contact-detail .whatsapp-link {
-    color: hsl(215, 16%, 47%); /* Cor do texto padrão para links aqui */
-    text-decoration: underline; /* Adiciona sublinhado */
+    color: hsl(215, 16%, 47%);
+    text-decoration: underline;
 }
 
-.contact-detail .whatsapp-svg-icon { /* Estilo para a imagem SVG do WhatsApp nos cards */
-    width: 1rem; /* Tamanho do ícone SVG do WhatsApp nos cards */
-    height: 1rem; /* Tamanho do ícone SVG do WhatsApp nos cards */
-    /* Se o SVG for multicolorido, não defina 'color' aqui */
+.contact-detail .whatsapp-svg-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Map links in Contact Info (main content) */
+.contact-detail .map-link {
+    color: hsl(215, 16%, 47%);
+    text-decoration: underline;
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.contact-detail .map-link span {
+    color: hsl(215, 16%, 47%);
+}
+
+/* Email links in Contact Info (main content) */
+.contact-detail .mail-link {
+    color: hsl(215, 16%, 47%);
+    text-decoration: underline;
+    display: flex;
+    align-items: center;
+    gap: 0;
 }
 
 
@@ -386,20 +509,50 @@ body {
     color: hsl(0, 0%, 98%);
 }
 
-/* Ajuste específico para links de WhatsApp no rodapé */
-.footer-contact .whatsapp-link {
-    color: hsl(0, 0%, 98%); /* Cor branca para o texto do link no rodapé */
-    text-decoration: underline; /* Adiciona sublinhado */
+/* Ajuste específico para links de Mapa no rodapé */
+.footer-contact .map-link {
+    color: hsl(0, 0%, 98%);
+    text-decoration: underline;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.footer-contact .whatsapp-svg-icon { /* Estilo para a imagem SVG do WhatsApp no rodapé */
-    width: 1rem; /* Tamanho do ícone SVG do WhatsApp no rodapé */
-    height: 1rem; /* Tamanho do ícone SVG do WhatsApp no rodapé */
-    /* Se o SVG for multicolorido, não defina 'color' aqui */
+/* Ajuste específico para links de WhatsApp no rodapé */
+.footer-contact .whatsapp-link {
+    color: hsl(0, 0%, 98%);
+    text-decoration: underline;
 }
+
+.footer-contact .whatsapp-svg-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Ajuste específico para links de Email no rodapé */
+.footer-contact .mail-link {
+    color: hsl(0, 0%, 98%);
+    text-decoration: underline;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 
 /* Responsive Design */
 @media (min-width: 768px) {
+    .header {
+        min-height: 200px;
+    }
+
+    .header-content {
+        padding: 1.5rem;
+    }
+
+    .header-title-section {
+        margin-bottom: 2rem;
+    }
+
     .header h1 {
         font-size: 2rem;
     }
@@ -420,14 +573,14 @@ body {
     }
 
     /* Contém os dois links de whatsapp no cabeçalho */
-    .contact-item > div { 
+    .contact-item > div {
         display: flex;
-        flex-direction: column; /* Deixa os números de telefone empilhados novamente dentro do item */
+        flex-direction: column;
         align-items: center;
-        gap: 0.25rem; /* Espaço entre os números de telefone */
+        gap: 0.25rem;
     }
     
-    .whatsapp-svg-icon { /* Ajuste o tamanho do ícone do whatsapp para telas maiores (cabeçalho e cards) */
+    .whatsapp-svg-icon {
         width: 1.25rem;
         height: 1.25rem;
     }
@@ -438,10 +591,42 @@ body {
         gap: 0.5rem;
     }
 
-    .footer-contact .whatsapp-svg-icon { /* Ajusta o tamanho do ícone do whatsapp no rodapé para telas maiores */
+    .footer-contact .whatsapp-svg-icon {
         width: 1.25rem;
         height: 1.25rem;
     }
+
+    /* Map links in contact-item (header and cards) for larger screens */
+    .contact-item .map-link {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .contact-item .map-link span {
+        word-break: normal;
+    }
+
+    /* Map links in footer for larger screens */
+    .footer-contact .map-link {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    /* Email links in contact-item (header and cards) for larger screens */
+    .contact-item .mail-link {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    /* Email links in footer for larger screens */
+    .footer-contact .mail-link {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
 
     .nav-menu-desktop {
         display: none;
@@ -477,6 +662,9 @@ body {
 }
 
 @media (min-width: 1024px) {
+    .header {
+        min-height: 220px;
+    }
     .header h1 {
         font-size: 2.2rem;
     }
