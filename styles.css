@@ -20,12 +20,12 @@ body {
 
 /* Header Styles */
 .header {
-    background: hsl(220, 100%, 35%); /* Fundo azul sólido */
+    background: hsl(220, 100%, 35%);
     color: hsl(0, 0%, 98%);
     padding: 1rem 0;
     position: relative;
     overflow: hidden;
-    min-height: 280px; /* Aumentado para acomodar o CTA */
+    min-height: 280px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -153,10 +153,15 @@ body {
     box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
 
-.cta-button i {
+/* Removido: .cta-button i (será substituído por .cta-svg-icon) */
+
+.cta-svg-icon { /* Novo estilo para imagens SVG dentro dos botões CTA */
     width: 1.25rem;
     height: 1.25rem;
-    color: hsl(0, 0%, 98%);
+    /* Para SVGs multicoloridos, 'color' ou 'fill' pode não ter efeito. */
+    /* Se os SVGs forem monocromáticos e você quiser colori-los, pode usar: */
+    /* fill: currentColor; */
+    /* color: hsl(0, 0%, 98%); */
 }
 
 
